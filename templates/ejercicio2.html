@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Ejercicio 2 - Login{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h2>Ejercicio 2: Inicio de sesión</h2>
+    <p>Ingresa tu usuario y contraseña.</p>
+    <p><small>Usuarios de prueba: juan/admin, pepe/user</small></p>
+
+    <form method="post" class="form-card">
+        <div class="form-group">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-submit">Ingresar</button>
+    </form>
+
+    {% if mensaje %}
+        <div class="result-card">
+            <p>{{ mensaje }}</p>
+        </div>
+    {% endif %}
+
+    <div class="back-link">
+        <a href="{{ url_for('index') }}">Volver al menú principal</a>
+    </div>
+</section>
+{% endblock %}
